@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Number = props => (
+const PlayNumber = props => (
     <button 
     key={props.number} 
     className="number"
@@ -9,4 +9,4 @@ const Number = props => (
     </button> 
 )
 
-export default Number;
+export default PlayNumber;
