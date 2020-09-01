@@ -1,9 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './StarMatch.css';
 
 const StarMatch = () => {
 
-    const stars = 5;
+    const [stars, setStars] = useState(utils.random(1, 9));
 
     return (
       <div className="game">
