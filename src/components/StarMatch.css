@@ -31,8 +31,9 @@
   }
   
   .star {
-      display: inline-block;
+    display: inline-block;
     margin: 0 15px;
+    color: goldenrod;
   }
   
   .star:after {
