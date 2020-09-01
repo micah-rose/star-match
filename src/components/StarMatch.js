@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import './StarMatch.css';
-import Number from './Number';
+import PlayNumber from './PlayNumber';
 
 const StarMatch = () => {
 
@@ -20,7 +20,7 @@ const StarMatch = () => {
           </div>
           <div className="right">
             {utils.range(1, 9).map(number =>
-                <Number number={number} />
+                <PlayNumber number={number} />
             )}
           </div>
         </div>
