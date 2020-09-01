@@ -9,6 +9,19 @@ const StarMatch = () => {
     const [availableNums, setAvailableNums] = useState([1, 2, 3, 4, 5]);
     const [candidateNums, setCandiateNums] = useState([2, 3]);
 
+    const candidatesAreWrong = utils.sum(candidateNums) > stars;
+
+    const numberStatus = (number) => {
+        if (!availableNums.includes(number)){
+            return 'used';
+        }
+
+        if (candidateNums.includes(number)){
+            return candidatesAreWrong ? 'wrong' : 'candidate';
+        }
+        return 'available';
+    }
+
     return (
       <div className="game">
           <h1>Star Match Game</h1>
@@ -18,12 +31,15 @@ const StarMatch = () => {
         <div className="body">
           <div className="left">
           {utils.range(1, stars).map(starId => 
-                <StarsDisplay />
+                <StarsDisplay key={starId} />
             )}
           </div>
           <div className="right">
             {utils.range(1, 9).map(number =>
-                <PlayNumber number={number} />
+                <PlayNumber 
+                key={number} 
+                number={number}
+                status={numberStatus} />
             )}
           </div>
         </div>
