@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import './StarMatch.css';
+import Number from './Number';
 
 const StarMatch = () => {
 
@@ -19,7 +20,7 @@ const StarMatch = () => {
           </div>
           <div className="right">
             {utils.range(1, 9).map(number =>
-                   <button key={number} className="number">{number}</button> 
+                <Number number={number} />
             )}
           </div>
         </div>
