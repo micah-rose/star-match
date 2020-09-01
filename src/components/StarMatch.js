@@ -6,6 +6,8 @@ import StarsDisplay from './StarsDisplay';
 const StarMatch = () => {
 
     const [stars, setStars] = useState(utils.random(1, 9));
+    const [availableNums, setAvailableNums] = useState([1, 2, 3, 4, 5]);
+    const [candidateNums, setCandiateNums] = useState([2, 3]);
 
     return (
       <div className="game">
