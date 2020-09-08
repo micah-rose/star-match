@@ -19,6 +19,10 @@ const StarMatch = () => {
             return candidatesAreWrong ? 'wrong' : 'candidate';
         }
         return 'available';
+    };
+
+    const onNumberClick = () => {
+      //currentStatus >> newStatus
     }
 
     return (
