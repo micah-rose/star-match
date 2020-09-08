@@ -30,9 +30,8 @@ const StarMatch = () => {
         </div>
         <div className="body">
           <div className="left">
-          {utils.range(1, stars).map(starId => 
-                <StarsDisplay key={starId} />
-            )}
+            <StarsDisplay count={stars} />
+          
           </div>
           <div className="right">
             {utils.range(1, 9).map(number =>
