@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './StarMatch.css';
 import PlayNumber from './PlayNumber';
 import StarsDisplay from './StarsDisplay';
@@ -10,6 +10,12 @@ const StarMatch = () => {
     const [availableNums, setAvailableNums] = useState(utils.range(1, 9));
     const [candidateNums, setCandidateNums] = useState([]);
     const [secondsLeft, setSecondsLeft] = useState(10);
+
+    useEffect(() => {
+      setTimeout(() => {
+        setSecondsLeft(secondsLeft - 1);
+      }, 1000)
+    });
 
     const candidatesAreWrong = utils.sum(candidateNums) > stars;
     const gameIsDone = (availableNums.length === 0)
