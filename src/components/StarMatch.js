@@ -21,7 +21,7 @@ const StarMatch = () => {
         return 'available';
     };
 
-    const onNumberClick = () => {
+    const onNumberClick = (number, currentStatus) => {
       //currentStatus >> newStatus
     }
 
@@ -40,7 +40,8 @@ const StarMatch = () => {
                 <PlayNumber 
                 key={number} 
                 number={number}
-                status={numberStatus(number)} />
+                status={numberStatus(number)} 
+                onClick={onNumberClick}/>
             )}
           </div>
         </div>
