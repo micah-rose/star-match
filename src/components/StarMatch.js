@@ -48,6 +48,7 @@ const StarMatch = () => {
     );
   };
   
+  
   // Color Theme
   const colors = {
     available: 'lightgray',
