@@ -7,7 +7,7 @@ const StarMatch = () => {
 
     const [stars, setStars] = useState(utils.random(1, 9));
     const [availableNums, setAvailableNums] = useState(utils.range(1, 9));
-    const [candidateNums, setCandiateNums] = useState([]);
+    const [candidateNums, setCandidateNums] = useState([]);
 
     const candidatesAreWrong = utils.sum(candidateNums) > stars;
 
@@ -22,7 +22,20 @@ const StarMatch = () => {
     };
 
     const onNumberClick = (number, currentStatus) => {
-      //currentStatus >> newStatus
+      if (currentStatus == 'used'){
+        return;
+      }
+
+      const newCandidateNums = candidateNums.concat(number);
+      if (utils.sum(newCandidateNums) !== stars){
+        setCandidateNums(newCandidateNums);
+      } else {
+        const newAvailableNums = availableNums.filter(
+          n => !newCandidateNums.includes(n)
+        );
+        setAvailableNums(newAvailableNums);
+        setCandidateNums([]);
+      }
     }
 
     return (
