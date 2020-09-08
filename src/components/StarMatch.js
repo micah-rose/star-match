@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import './StarMatch.css';
 import PlayNumber from './PlayNumber';
 import StarsDisplay from './StarsDisplay';
+import PlayAgain from './PlayAgain';
 
 const StarMatch = () => {
 
