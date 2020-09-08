@@ -6,8 +6,8 @@ import StarsDisplay from './StarsDisplay';
 const StarMatch = () => {
 
     const [stars, setStars] = useState(utils.random(1, 9));
-    const [availableNums, setAvailableNums] = useState([1, 2, 3, 4, 5]);
-    const [candidateNums, setCandiateNums] = useState([2, 3]);
+    const [availableNums, setAvailableNums] = useState(utils.range(1, 9));
+    const [candidateNums, setCandiateNums] = useState([]);
 
     const candidatesAreWrong = utils.sum(candidateNums) > stars;
 
@@ -43,15 +43,6 @@ const StarMatch = () => {
         <div className="timer">Time Remaining: 10</div>
       </div>
     );
-  };
-  
-  
-  // Color Theme
-  const colors = {
-    available: 'lightgray',
-    used: 'lightgreen',
-    wrong: 'lightcoral',
-    candidate: 'deepskyblue',
   };
   
   // Math science
