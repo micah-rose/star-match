@@ -12,9 +12,11 @@ const StarMatch = () => {
     const [secondsLeft, setSecondsLeft] = useState(10);
 
     useEffect(() => {
-      setTimeout(() => {
-        setSecondsLeft(secondsLeft - 1);
-      }, 1000)
+      if (secondsLeft > 0){
+        setTimeout(() => {
+          setSecondsLeft(secondsLeft - 1);
+        }, 1000)
+      }
     });
 
     const candidatesAreWrong = utils.sum(candidateNums) > stars;
