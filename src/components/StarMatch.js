@@ -15,7 +15,6 @@ const StarMatch = () => {
         if (!availableNums.includes(number)){
             return 'used';
         }
-
         if (candidateNums.includes(number)){
             return candidatesAreWrong ? 'wrong' : 'candidate';
         }
@@ -30,15 +29,14 @@ const StarMatch = () => {
         </div>
         <div className="body">
           <div className="left">
-            <StarsDisplay count={stars} />
-          
+            <StarsDisplay count={stars} />         
           </div>
           <div className="right">
             {utils.range(1, 9).map(number =>
                 <PlayNumber 
                 key={number} 
                 number={number}
-                status={numberStatus} />
+                status={numberStatus(number)} />
             )}
           </div>
         </div>
