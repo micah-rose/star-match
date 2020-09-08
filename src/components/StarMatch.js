@@ -30,7 +30,7 @@ const StarMatch = () => {
     };
 
     const onNumberClick = (number, currentStatus) => {
-      if (currentStatus == 'used'){
+      if (currentStatus === 'used'){
         return;
       }
 
