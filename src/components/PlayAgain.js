@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 
 const PlayAgain = props => (
     <div className="game-done">
-        <button>Play Again</button>
+        <button onClick={props.onClick}>Play Again</button>
     </div>
 )
 
