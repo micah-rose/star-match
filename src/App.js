@@ -1,5 +1,5 @@
 import React from 'react';
-import StarMatch from './components/StarMatch';
+import StarMatch from './components/Game';
 
 function App() {
   return (
