@@ -12,7 +12,7 @@ const StarMatch = () => {
     const [secondsLeft, setSecondsLeft] = useState(10);
 
     useEffect(() => {
-      if (secondsLeft > 0){
+      if (secondsLeft > 0 && availableNums.length > 0){
         const timerId = setTimeout(() => {
           setSecondsLeft(secondsLeft - 1);
         }, 1000);
@@ -72,7 +72,7 @@ const StarMatch = () => {
         </div>
         <div className="body">
           <div className="left">
-            {gameIsStatus !== 'active' ? <PlayAgain onClick={resetGame} gameStatus={gameStatus}/> : <StarsDisplay count={stars} /> }        
+            {gameStatus !== 'active' ? <PlayAgain onClick={resetGame} gameStatus={gameStatus}/> : <StarsDisplay count={stars} /> }        
           </div>
           <div className="right">
             {utils.range(1, 9).map(number =>
