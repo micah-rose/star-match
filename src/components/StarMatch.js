@@ -16,7 +16,7 @@ const StarMatch = () => {
         const timerId = setTimeout(() => {
           setSecondsLeft(secondsLeft - 1);
         }, 1000);
-        return clearTimeout(timerId);
+        return () => clearTimeout(timerId);
       }
     });
 
