@@ -1,9 +1,11 @@
 import React from 'react';
 
-const PlayAgain = props => (
+const PlayAgain = (props) => (
     <div className="game-done">
-        <div className="message"
-        style={{ color: props.gameStatus === 'lost' ? 'lightcoral' : 'lightgreen'}}>
+        <div 
+            className="message"
+            style={{ color: props.gameStatus === 'lost' ? 'lightcoral' : 'lightgreen'}}
+        >
             {props.gameStatus === 'lost' ? 'Game Over' : 'You win!!'}
         </div>
         <button 
@@ -18,3 +20,4 @@ const PlayAgain = props => (
 )
 
 export default PlayAgain;
+

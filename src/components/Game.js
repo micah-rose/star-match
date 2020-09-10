@@ -47,30 +47,30 @@ const Game = (props) => {
   } = useGameState();
 
     const candidatesAreWrong = utils.sum(candidateNums) > stars;
-    const gameStatus = availableNums.length === 0 
-    ? 'won' 
-    : secondsLeft === 0 
-    ? 'lost' : 'active';
+    const gameStatus = 
+      availableNums.length === 0 ? 'won' : secondsLeft === 0 ? 'lost' : 'active';
 
     const numberStatus = (number) => {
         if (!availableNums.includes(number)){
             return 'used';
         }
+
         if (candidateNums.includes(number)){
             return candidatesAreWrong ? 'wrong' : 'candidate';
         }
+
         return 'available';
     };
 
     const onNumberClick = (number, currentStatus) => {
-      if (gameStatus !== 'active' || currentStatus === 'used'){
+      if (currentStatus === 'used' || secondsLeft === 0){
         return;
       }
 
       const newCandidateNums = 
         currentStatus === 'available'
-        ? candidateNums.concat(number)
-        : candidateNums.filter(cn => cn !== number);
+          ? candidateNums.concat(number)
+          : candidateNums.filter((cn) => cn !== number);
       
       setGameState(newCandidateNums);
     }
@@ -83,18 +83,21 @@ const Game = (props) => {
         </div>
         <div className="body">
           <div className="left">
-            {gameStatus !== 'active' 
-              ? (<PlayAgain onClick={props.newGame} gameStatus={gameStatus}/>) 
-              : (<StarsDisplay count={stars} />) }        
+            {gameStatus !== 'active' ? (
+              <PlayAgain onClick={props.newGame} gameStatus={gameStatus}/>
+              ) : (
+                <StarsDisplay count={stars} />
+              )}        
           </div>
           <div className="right">
-            {utils.range(1, 9).map(number =>
+            {utils.range(1, 9).map((number) => (
                 <PlayNumber 
                 key={number} 
                 number={number}
                 status={numberStatus(number)} 
-                onClick={onNumberClick}/>
-            )}
+                onClick={onNumberClick}
+              />
+            ))}
           </div>
         </div>
             <div className="timer">Time Remaining: {secondsLeft}</div>
@@ -103,3 +106,5 @@ const Game = (props) => {
   };
 
 export default Game;
+
+
